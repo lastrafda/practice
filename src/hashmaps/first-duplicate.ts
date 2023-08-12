@@ -1,16 +1,13 @@
 const firstDuplicate = (arr: string[]) => {
     let hashMap: Record<string, boolean> = {}
-    let result
-    let i = 0
-    while (arr.length > i) {
-        if (hashMap[arr[i]]) {
-            result = arr[i]
-            break;
+    for (const str of arr) {
+        if (hashMap[str]) {
+            return str
+        } else {
+            hashMap[str] = true
         }
-        hashMap[arr[i]] = true
-        i++;
     }
-    return result
+    return ""
 }
 
 const arr = ["a", "b", "c", "d", "c", "e", "f"]
